@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Courier New', monospace;
+  background-color: #0d0d0d;
+  color: #fff;
+  overflow: hidden;
+}
+
+#game-screen {
+  width: 100vw;
+  height: 100vh;
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5vw;
+}
+
+#character {
+  width: 15vw;
+  max-width: 96px;
+  min-width: 48px;
+  aspect-ratio: 1/1;
+  background-image: url('https://i.imgur.com/BfmYzIm.png'); /* pixel art */
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 5vh;
+}
+
+#dialog-box {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #fff;
+  padding: 3vw;
+  width: 100%;
+  max-width: 600px;
+  min-height: 80px;
+  font-size: clamp(14px, 3vw, 20px);
+  text-align: left;
+  box-shadow: 0 0 10px rgba(255,255,255,0.2);
+  border-radius: 8px;
+}
