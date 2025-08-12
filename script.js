@@ -23,7 +23,7 @@ document.addEventListener("keyup", (e) => {
 
 function loadAssets() {
   player.sprite = new Image();
-  player.sprite.src = "9.jpg";
+  player.sprite.src = "9.png";
 }
 
 function update() {
