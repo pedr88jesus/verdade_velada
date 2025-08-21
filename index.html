@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Verdade Velada - Demo</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <title>Sombras da Memória</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="game-container">
-    <canvas id="gameCanvas" width="480" height="270"></canvas>
+  <div id="menu">
+    <h1>Sombras da Memória</h1>
+    <button onclick="iniciarJogo()">Iniciar</button>
+    <button onclick="mostrarCreditos()">Créditos</button>
   </div>
+
+  <div id="jogo" style="display:none;">
+    <canvas id="canvas" width="640" height="360"></canvas>
+    <div id="dialogo">
+      <p id="fala"></p>
+      <div id="opcoes"></div>
+    </div>
+  </div>
+
+  <audio id="ambiente" src="assets/ambiente.mp3" loop></audio>
   <script src="script.js"></script>
 </body>
 </html>
