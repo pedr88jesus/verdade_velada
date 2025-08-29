@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FNAF Protótipo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Tela inicial -->
+  <div id="menu">
+    <h1>Five Nights at VSCode</h1>
+    <button id="startBtn">Iniciar Noite</button>
+  </div>
+
+  <!-- Jogo -->
+  <div id="game" class="hidden">
+    <div id="hud">
+      <span id="clock">12:00 AM</span>
+    </div>
+
+    <div id="camera-view">
+      <p id="camera-text">Câmera desligada</p>
+    </div>
+
+    <div id="controls">
+      <button class="cam-btn" data-cam="1">Cam 1</button>
+      <button class="cam-btn" data-cam="2">Cam 2</button>
+      <button class="cam-btn" data-cam="3">Cam 3</button>
+    </div>
+  </div>
+
+  <!-- Tela de jumpscare -->
+  <div id="jumpscare" class="hidden">
+    <p>👻 Jumpscare!</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
