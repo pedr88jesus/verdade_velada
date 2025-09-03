@@ -3,6 +3,12 @@ const officeImg = document.getElementById('office-img');
 const cameraImg = document.getElementById('camera-img');
 const jumpscareSound = document.getElementById('jumpscare-sound');
 const cameraSound = document.getElementById('camera-sound');
+const cameraView = document.getElementById('camera-view');
+
+function toggleCameraView() {
+  cameraSound.play();
+  cameraView.classList.toggle('hidden');
+}
 
 function changeCamera(cam) {
   currentCamera = cam;
@@ -17,8 +23,6 @@ function changeCamera(cam) {
       break;
     case 'cam2a':
       cameraImg.src = 'assets/cameras/cam2a_bonnie.png';
-
-      // Simula Bonnie vindo atacar
       setTimeout(() => {
         doJumpscare();
       }, 2000);
@@ -26,20 +30,8 @@ function changeCamera(cam) {
   }
 }
 
-function toggleLight(side) {
-  if (side === 'left') {
-    officeImg.src = 'assets/office/office_bonnie_door.png';
-  } else {
-    officeImg.src = 'assets/office/office_chica_door.png';
-  }
-
-  // Volta ao normal depois de 2 segundos
-  setTimeout(() => {
-    officeImg.src = 'assets/office/office_empty.png';
-  }, 2000);
-}
-
 function doJumpscare() {
+  cameraView.classList.add('hidden'); // fecha câmera
   officeImg.src = 'assets/jumpscares/jumpscare_freddy1.png';
   jumpscareSound.play();
 

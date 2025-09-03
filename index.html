@@ -7,29 +7,23 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="game">
-    <!-- Escritório -->
-    <div id="office">
-      <img id="office-img" src="assets/office/office_empty.png" alt="Escritório">
-    </div>
+  <!-- Fundo do escritório -->
+  <div id="office">
+    <img id="office-img" src="assets/office/office_empty.png" alt="Escritório">
+    
+    <!-- Botão para abrir câmeras -->
+    <button id="camera-toggle" onclick="toggleCameraView()">📷 Câmeras</button>
+  </div>
 
-    <!-- Botões de câmeras -->
+  <!-- Tela de câmeras -->
+  <div id="camera-view" class="hidden">
     <div id="camera-buttons">
       <button onclick="changeCamera('cam1a')">Câmera 1A</button>
       <button onclick="changeCamera('cam1c')">Câmera 1C</button>
       <button onclick="changeCamera('cam2a')">Câmera 2A</button>
+      <button onclick="toggleCameraView()">Fechar</button>
     </div>
-
-    <!-- Tela da câmera -->
-    <div id="camera-view">
-      <img id="camera-img" src="assets/cameras/cam1a_all.png" alt="Câmera">
-    </div>
-
-    <!-- Botões de luz -->
-    <div id="light-buttons">
-      <button onclick="toggleLight('left')">Luz Esquerda</button>
-      <button onclick="toggleLight('right')">Luz Direita</button>
-    </div>
+    <img id="camera-img" src="assets/cameras/cam1a_all.png" alt="Câmera">
   </div>
 
   <!-- Sons -->
