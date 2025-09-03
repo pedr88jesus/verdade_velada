@@ -3,37 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FNAF Protótipo</title>
+  <title>Mini FNAF Teste</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Tela inicial -->
-  <div id="menu">
-    <h1>Five Nights at VSCode</h1>
-    <button id="startBtn">Iniciar Noite</button>
-  </div>
-
-  <!-- Jogo -->
-  <div id="game" class="hidden">
-    <div id="hud">
-      <span id="clock">12:00 AM</span>
+  <div id="game">
+    <!-- Escritório -->
+    <div id="office">
+      <img id="office-img" src="assets/office/office_empty.png" alt="Escritório">
     </div>
 
+    <!-- Botões de câmeras -->
+    <div id="camera-buttons">
+      <button onclick="changeCamera('cam1a')">Câmera 1A</button>
+      <button onclick="changeCamera('cam1c')">Câmera 1C</button>
+      <button onclick="changeCamera('cam2a')">Câmera 2A</button>
+    </div>
+
+    <!-- Tela da câmera -->
     <div id="camera-view">
-      <p id="camera-text">Câmera desligada</p>
+      <img id="camera-img" src="assets/cameras/cam1a_all.png" alt="Câmera">
     </div>
 
-    <div id="controls">
-      <button class="cam-btn" data-cam="1">Cam 1</button>
-      <button class="cam-btn" data-cam="2">Cam 2</button>
-      <button class="cam-btn" data-cam="3">Cam 3</button>
+    <!-- Botões de luz -->
+    <div id="light-buttons">
+      <button onclick="toggleLight('left')">Luz Esquerda</button>
+      <button onclick="toggleLight('right')">Luz Direita</button>
     </div>
   </div>
 
-  <!-- Tela de jumpscare -->
-  <div id="jumpscare" class="hidden">
-    <p>👻 Jumpscare!</p>
-  </div>
+  <!-- Sons -->
+  <audio id="jumpscare-sound" src="assets/sounds/jumpscare.mp3"></audio>
+  <audio id="camera-sound" src="assets/sounds/click.mp3"></audio>
 
   <script src="script.js"></script>
 </body>

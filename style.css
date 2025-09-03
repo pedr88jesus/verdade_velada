@@ -1,68 +1,45 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: black;
+  background-color: black;
   color: white;
-  text-align: center;
-}
-
-/* Ocultar elementos */
-.hidden {
-  display: none;
-}
-
-#menu {
-  margin-top: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 #game {
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-
-#hud {
-  text-align: right;
-  padding: 10px;
-}
-
-#camera-view {
-  flex: 1;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  background: #111;
+}
+
+#office, #camera-view {
+  margin: 10px;
   border: 2px solid white;
+  width: 640px;
+  height: 360px;
+  overflow: hidden;
+  position: relative;
 }
 
-#controls {
-  padding: 20px;
-}
-
-.cam-btn {
-  margin: 5px;
-  padding: 10px 20px;
-  background: #333;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.cam-btn:hover {
-  background: #555;
-}
-
-/* Tela de jumpscare */
-#jumpscare {
-  position: fixed;
-  top: 0;
-  left: 0;
+#office img, #camera-view img {
   width: 100%;
   height: 100%;
-  background: red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 50px;
+  object-fit: cover;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #222;
+  color: white;
+  border: 1px solid #555;
+}
+
+button:hover {
+  background: #444;
 }
