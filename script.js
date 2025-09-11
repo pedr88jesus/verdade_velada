@@ -1,43 +1,30 @@
-let currentCamera = 'cam1a';
-const officeImg = document.getElementById('office-img');
-const cameraImg = document.getElementById('camera-img');
-const jumpscareSound = document.getElementById('jumpscare-sound');
-const cameraSound = document.getElementById('camera-sound');
-const cameraView = document.getElementById('camera-view');
+const doorLeft = document.getElementById("doorLeft");
+const doorRight = document.getElementById("doorRight");
+const btnDoorLeft = document.getElementById("btnDoorLeft");
+const btnDoorRight = document.getElementById("btnDoorRight");
 
-function toggleCameraView() {
-  cameraSound.play();
-  cameraView.classList.toggle('hidden');
-}
+// Estados
+let isLeftClosed = false;
+let isRightClosed = false;
 
-function changeCamera(cam) {
-  currentCamera = cam;
-  cameraSound.play();
-
-  switch(cam) {
-    case 'cam1a':
-      cameraImg.src = 'assets/cameras/cam1a_all.png';
-      break;
-    case 'cam1c':
-      cameraImg.src = 'assets/cameras/cam1c_foxy.png';
-      break;
-    case 'cam2a':
-      cameraImg.src = 'assets/cameras/cam2a_bonnie.png';
-      setTimeout(() => {
-        doJumpscare();
-      }, 2000);
-      break;
+// Controle da porta esquerda
+btnDoorLeft.addEventListener("click", () => {
+  if (!isLeftClosed) {
+    doorLeft.src = "assets/doors/door_left_closed.png";
+    isLeftClosed = true;
+  } else {
+    doorLeft.src = "assets/doors/door_left_open.png";
+    isLeftClosed = false;
   }
-}
+});
 
-function doJumpscare() {
-  cameraView.classList.add('hidden'); // fecha câmera
-  officeImg.src = 'assets/jumpscares/jumpscare_freddy1.png';
-  jumpscareSound.play();
-
-  setTimeout(() => {
-    alert("GAME OVER! Freddy te pegou!");
-    officeImg.src = 'assets/office/office_empty.png';
-    cameraImg.src = 'assets/cameras/cam1a_all.png';
-  }, 1500);
-}
+// Controle da porta direita
+btnDoorRight.addEventListener("click", () => {
+  if (!isRightClosed) {
+    doorRight.src = "assets/doors/door_right_closed.png";
+    isRightClosed = true;
+  } else {
+    doorRight.src = "assets/doors/door_right_open.png";
+    isRightClosed = false;
+  }
+});

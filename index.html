@@ -3,32 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mini FNAF Teste</title>
+  <title>FNAF Teste</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Escritório ocupando a tela -->
-  <div id="office">
-    <img id="office-img" src="assets/office/office_empty.png" alt="Escritório">
+  <div id="game">
+    <!-- Fundo com vídeo -->
+    <video id="background" autoplay loop muted>
+      <source src="assets/office/office_loop.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video>
 
-    <!-- Botão pequeno de câmera -->
-    <button id="camera-toggle" onclick="toggleCameraView()">📷</button>
+    <!-- Portas -->
+    <img id="doorLeft" src="assets/doors/door_left_open.png" alt="Porta Esquerda">
+    <img id="doorRight" src="assets/doors/door_right_open.png" alt="Porta Direita">
+
+    <!-- Botões -->
+    <button id="btnDoorLeft">⮜ Porta Esquerda</button>
+    <button id="btnDoorRight">Porta Direita ⮞</button>
   </div>
-
-  <!-- Tela de câmeras -->
-  <div id="camera-view" class="hidden">
-    <div id="camera-buttons">
-      <button onclick="changeCamera('cam1a')">Câmera 1A</button>
-      <button onclick="changeCamera('cam1c')">Câmera 1C</button>
-      <button onclick="changeCamera('cam2a')">Câmera 2A</button>
-      <button onclick="toggleCameraView()">Fechar</button>
-    </div>
-    <img id="camera-img" src="assets/cameras/cam1a_all.png" alt="Câmera">
-  </div>
-
-  <!-- Sons -->
-  <audio id="jumpscare-sound" src="assets/sounds/jumpscare.mp3"></audio>
-  <audio id="camera-sound" src="assets/sounds/click.mp3"></audio>
 
   <script src="script.js"></script>
 </body>
