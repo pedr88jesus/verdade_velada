@@ -7,43 +7,38 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- VÍDEO DE FUNDO (escritório em loop) -->
-  <video id="bg-video" autoplay loop muted playsinline>
-    <source src="assets/office/office_loop.mp4" type="video/mp4">
-    Seu navegador não suporta vídeo.
-  </video>
+  <!-- ÁREA DO JOGO -->
+  <div id="game-area">
+    <!-- VÍDEO DE FUNDO -->
+    <video id="bg-video" autoplay loop muted playsinline>
+      <source src="assets/office/office_loop.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video>
 
-  <!-- HUD TOPO (Relógio e Bateria) -->
-  <div class="top-hud">
-    <div id="clock">12 AM</div>
-    <div id="battery">Bateria: 100%</div>
-  </div>
-
-  <!-- PORTAS (imagens sobrepostas ao vídeo) -->
-  <!-- Use PNGs com fundo transparente para encaixar sobre o vídeo -->
-  <img id="doorLeft" src="assets/doors/door_left_open.png" alt="Porta Esquerda">
-  <img id="doorRight" src="assets/doors/door_right_open.png" alt="Porta Direita">
-
-  <!-- BOTÕES FIXOS -->
-  <button id="btnDoorLeft" class="btn-left">⮜ Porta Esquerda</button>
-  <button id="btnCamera" class="btn-center">📷 Câmeras</button>
-  <button id="btnDoorRight" class="btn-right">Porta Direita ⮞</button>
-
-  <!-- OVERLAY DE CÂMERA -->
-  <div id="camera-overlay" class="hidden">
-    <div id="camera-container">
-      <!-- Aqui você pode colocar vídeo ou imagem da câmera atual -->
-      <video id="camera-video" autoplay loop muted playsinline>
-        <source src="assets/cameras/camera_test.mp4" type="video/mp4">
-        <!-- fallback para imagem -->
-      </video>
-      <img id="camera-fallback" src="assets/cameras/camera_test.png" alt="Camera" style="display:none; width:100%; height:100%; object-fit:cover;">
-      <button id="close-camera" class="close-camera">X</button>
+    <!-- HUD TOPO -->
+    <div class="top-hud">
+      <div id="clock">12 AM</div>
+      <div id="battery">Bateria: 100%</div>
     </div>
-  </div>
 
-  <!-- FLASH RÁPIDO (transição ao abrir/fechar câmeras) -->
-  <div id="cameraFlash" class="hidden"></div>
+    <!-- BOTÕES NAS LATERAIS E NO CENTRO -->
+    <button id="btnDoorLeft" class="btn btn-left">Porta Esquerda</button>
+    <button id="btnCamera" class="btn btn-center">Câmera</button>
+    <button id="btnDoorRight" class="btn btn-right">Porta Direita</button>
+
+    <!-- OVERLAY DA CÂMERA -->
+    <div id="camera-overlay" class="hidden">
+      <div id="camera-container">
+        <video id="camera-video" autoplay loop muted playsinline>
+          <source src="assets/cameras/camera_test.mp4" type="video/mp4">
+        </video>
+        <button id="close-camera" class="close-camera">Fechar</button>
+      </div>
+    </div>
+
+    <!-- FLASH DE TRANSIÇÃO -->
+    <div id="cameraFlash" class="hidden"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>

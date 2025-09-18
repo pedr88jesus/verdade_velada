@@ -1,54 +1,54 @@
-const doorLeft = document.getElementById("doorLeft");
-const doorRight = document.getElementById("doorRight");
+// Seletores
+const clockEl = document.getElementById("clock");
+const batteryEl = document.getElementById("battery");
 const btnDoorLeft = document.getElementById("btnDoorLeft");
 const btnDoorRight = document.getElementById("btnDoorRight");
-
 const btnCamera = document.getElementById("btnCamera");
-const cameraScreen = document.getElementById("cameraScreen");
-const btnExitCamera = document.getElementById("btnExitCamera");
-const cameraFlash = document.getElementById("cameraFlash");
+const overlay = document.getElementById("camera-overlay");
+const closeCamera = document.getElementById("close-camera");
+const flash = document.getElementById("cameraFlash");
 
 // Estados
-let isLeftClosed = false;
-let isRightClosed = false;
+let battery = 100;
+let hour = 0; // começa 12 AM
+let doors = { left: false, right: false };
 
-// Controle da porta esquerda
+// Relógio (avança de hora em hora)
+setInterval(() => {
+  hour++;
+  if (hour > 6) hour = 6;
+  clockEl.textContent = `${hour === 0 ? 12 : hour} ${hour < 6 ? "AM" : "AM (VENCEU!)"}`;
+}, 60000); // 1 min = 1 hora (ajuste para testar)
+
+// Bateria
+setInterval(() => {
+  let drain = 0.1; // base
+  if (doors.left) drain += 0.3;
+  if (doors.right) drain += 0.3;
+  if (!overlay.classList.contains("hidden")) drain += 0.5;
+  battery -= drain;
+  if (battery < 0) battery = 0;
+  batteryEl.textContent = `Bateria: ${battery.toFixed(0)}%`;
+}, 1000);
+
+// Portas
 btnDoorLeft.addEventListener("click", () => {
-  doorLeft.src = isLeftClosed ? "assets/doors/door_left_open.png" : "assets/doors/door_left_closed.png";
-  isLeftClosed = !isLeftClosed;
+  doors.left = !doors.left;
+  btnDoorLeft.textContent = doors.left ? "Abrir Esquerda" : "Fechar Esquerda";
 });
-
-// Controle da porta direita
 btnDoorRight.addEventListener("click", () => {
-  doorRight.src = isRightClosed ? "assets/doors/door_right_open.png" : "assets/doors/door_right_closed.png";
-  isRightClosed = !isRightClosed;
+  doors.right = !doors.right;
+  btnDoorRight.textContent = doors.right ? "Abrir Direita" : "Fechar Direita";
 });
 
-// Abrir câmeras
+// Câmera
 btnCamera.addEventListener("click", () => {
-  playCameraFlash(() => {
-    cameraScreen.style.display = "block";
-  });
+  overlay.classList.remove("hidden");
+  flash.classList.add("active");
+  setTimeout(() => flash.classList.remove("active"), 300);
 });
-
-// Sair das câmeras
-btnExitCamera.addEventListener("click", () => {
-  playCameraFlash(() => {
-    cameraScreen.style.display = "none";
-  });
+closeCamera.addEventListener("click", () => {
+  overlay.classList.add("hidden");
+  flash.classList.add("active");
+  setTimeout(() => flash.classList.remove("active"), 300);
 });
-
-// Função de flash de transição
-function playCameraFlash(callback) {
-  cameraFlash.style.display = "block";
-  cameraFlash.style.opacity = "1";
-
-  setTimeout(() => {
-    cameraFlash.style.opacity = "0";
-  }, 200);
-
-  setTimeout(() => {
-    cameraFlash.style.display = "none";
-    if (callback) callback();
-  }, 400);
-}
