@@ -98,7 +98,7 @@
   cursor: pointer;
 }
 
-/* Flash ao abrir/fechar câmera */
+/* Flah ao abrir/fechar câmera */
 #cameraFlash {
   position: absolute;
   top: 0;
